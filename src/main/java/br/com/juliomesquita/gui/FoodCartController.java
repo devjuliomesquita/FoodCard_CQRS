@@ -3,12 +3,13 @@ package br.com.juliomesquita.gui;
 import br.com.juliomesquita.coreapi.commands.FoodCartCreateCommand;
 import br.com.juliomesquita.coreapi.commands.ProductDeselectCommand;
 import br.com.juliomesquita.coreapi.commands.ProductSelectCommand;
+import br.com.juliomesquita.coreapi.queries.FoodCartFindQuery;
+import br.com.juliomesquita.query.FoodCartView;
 import lombok.RequiredArgsConstructor;
 import org.axonframework.commandhandling.gateway.CommandGateway;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.axonframework.messaging.responsetypes.ResponseTypes;
+import org.axonframework.queryhandling.QueryGateway;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
@@ -19,6 +20,7 @@ import java.util.concurrent.CompletableFuture;
 public class FoodCartController {
 
     private final CommandGateway commandGateway;
+    private final QueryGateway queryGateway;
 
     @PostMapping("/create")
     public CompletableFuture<UUID> createFoodCart() {
@@ -60,6 +62,13 @@ public class FoodCartController {
         );
     }
 
+    @GetMapping("/{foodCartId}")
+    public CompletableFuture<FoodCartView> findFoodCart(@PathVariable("foodCartId") String foodCartId){
+        return this.queryGateway.query(
+                FoodCartFindQuery.builder().foodCartId(UUID.fromString(foodCartId)).build(),
+                ResponseTypes.instanceOf(FoodCartView.class)
+        );
+    }
 
 
 }
