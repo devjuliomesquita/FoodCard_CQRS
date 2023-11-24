@@ -8,7 +8,7 @@ import java.util.UUID;
 @Data
 @Builder
 public class ProductSelectedEvent {
-    private UUID foodCardId;
+    private UUID foodCartId;
     private UUID productId;
     private Integer quantity;
 }

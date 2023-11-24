@@ -7,8 +7,8 @@ import org.axonframework.commandhandling.RoutingKey;
 import java.util.UUID;
 @Data
 @Builder
-public class FoodCardCreateCommand {
+public class FoodCartCreateCommand {
 
     @RoutingKey
-    private UUID foodCardId;
+    private UUID foodCartId;
 }

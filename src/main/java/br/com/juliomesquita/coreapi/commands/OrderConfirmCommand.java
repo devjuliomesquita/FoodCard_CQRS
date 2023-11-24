@@ -10,5 +10,5 @@ import java.util.UUID;
 @Builder
 public class OrderConfirmCommand {
     @TargetAggregateIdentifier
-    private UUID foodCardId;
+    private UUID foodCartId;
 }

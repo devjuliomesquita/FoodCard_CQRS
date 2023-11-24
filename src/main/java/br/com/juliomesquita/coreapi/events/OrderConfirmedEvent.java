@@ -8,5 +8,5 @@ import java.util.UUID;
 @Data
 @Builder
 public class OrderConfirmedEvent {
-    private UUID foodCardId;
+    private UUID foodCartId;
 }

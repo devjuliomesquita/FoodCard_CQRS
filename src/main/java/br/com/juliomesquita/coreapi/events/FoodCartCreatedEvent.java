@@ -7,6 +7,6 @@ import java.util.UUID;
 
 @Data
 @Builder
-public class FoodCardCreatedEvent {
-    private UUID foodCardId;
+public class FoodCartCreatedEvent {
+    private UUID foodCartId;
 }

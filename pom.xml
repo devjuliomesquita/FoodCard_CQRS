@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.juliomesquita</groupId>
-	<artifactId>foodcard</artifactId>
+	<artifactId>foodcart</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>FoodCard</name>
 	<description>bla bla blum</description>

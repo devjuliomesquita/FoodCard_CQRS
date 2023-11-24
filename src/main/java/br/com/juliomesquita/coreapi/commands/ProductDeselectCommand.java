@@ -10,7 +10,7 @@ import java.util.UUID;
 @Builder
 public class ProductDeselectCommand {
     @TargetAggregateIdentifier
-    private UUID foodCardId;
+    private UUID foodCartId;
     private UUID productId;
     private Integer quantity;
 }
